@@ -67,5 +67,5 @@
 	?>
 
 
-	<a href="home2.php"> back</a>
+	<a href="home.php"> back</a>
 </body>

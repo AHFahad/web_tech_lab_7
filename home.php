@@ -14,8 +14,14 @@ $result = mysqli_query($mysqli, "SELECT * FROM products ORDER BY id DESC"); // u
 </head>
  
 <body>
-    <a href="add.html">Add New Data</a><br/><br/>
- 
+
+
+<?php  
+if(isset($_SESSION["email"])){
+     echo "<a href=add.html>Add New Data</a><br/><br/>";
+    
+ }
+ ?>
     <table width='80%' border=0>
         <tr bgcolor='#CCCCCC'>
             <td>id</td>
@@ -33,13 +39,35 @@ $result = mysqli_query($mysqli, "SELECT * FROM products ORDER BY id DESC"); // u
             echo "<td>".$res['des']."</td>";
             echo "<td>".$res['quantity']."</td>";   
 
+            if(isset($_SESSION["email"])){
             
-            
-            echo "<td><a href=\"edit.php?id=$res[id]\">Edit</a> | <a href=\"delete.php?id=$res[id]\" onClick=\"return confirm('Are you sure you want to delete?')\">Delete</a></td>";   
-            
+            echo "<td><a href=\"edit.php?id=$res[id]\">Edit</a> | <a href=\"delete.php?id=$res[id]\" onClick=\"return confirm('Are you sure you want to delete?')\">Delete</a></td>"; 
+
+
+            }
         }
         ?>
     </table>
-    <a href="home2.php"> logout</a>
+
+
+
+<?php  
+if(isset($_SESSION["email"])){
+   echo" <a href='logout.php'> logout</a>";
+    
+     }
+
+ if(!isset($_SESSION["email"])){
+   echo"  <a href='login.php'>login</a>";
+    
+     }    
+
+
+ ?>
+    
+
+
+
+   
 </body>
 </html>
