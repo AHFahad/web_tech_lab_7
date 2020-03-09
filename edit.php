@@ -23,6 +23,8 @@ if(isset($_POST['update']))
         if(empty($quantity)) {
             echo "<font color='red'>qauntity field is empty.</font><br/>";
         }  
+         echo "<br/><a href='javascript:self.history.back();'>Go Back</a>";
+        exit();
     } else {    
         //updating the table
         $result = mysqli_query($mysqli, "UPDATE products SET name='$name',des='$des',quantity='$quantity' WHERE id=$id");
